@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 37 Months & Valentine's!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .numpad {
+            display: grid;
+            grid-template-columns: repeat(3, 60px);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .btn {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+        #passcode {
+            font-size: 24px;
+            margin-top: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            color: black;
+        }
+        .clue {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #ffe4e1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter the Passcode to Open Your Surprise!</h2>
+        <p class="clue">Clue: When mo naging bf si Rakim? 🥰</p>
+        <div id="passcode"></div>
+        <div class="numpad">
+            <button class="btn" onclick="addNumber(1)">1</button>
+            <button class="btn" onclick="addNumber(2)">2</button>
+            <button class="btn" onclick="addNumber(3)">3</button>
+            <button class="btn" onclick="addNumber(4)">4</button>
+            <button class="btn" onclick="addNumber(5)">5</button>
+            <button class="btn" onclick="addNumber(6)">6</button>
+            <button class="btn" onclick="addNumber(7)">7</button>
+            <button class="btn" onclick="addNumber(8)">8</button>
+            <button class="btn" onclick="addNumber(9)">9</button>
+            <button class="btn" onclick="clearPasscode()">⌫</button>
+            <button class="btn" onclick="addNumber(0)">0</button>
+            <button class="btn" onclick="checkPasscode()">✔</button>
+        </div>
+    </div>
+    
+    <script>
+        let inputCode = "";
+        const correctPasscode = "011422";
+
+        function addNumber(num) {
+            if (inputCode.length < 6) {
+                inputCode += num;
+                document.getElementById("passcode").innerText = inputCode;
+            }
+        }
+
+        function clearPasscode() {
+            inputCode = "";
+            document.getElementById("passcode").innerText = "";
+        }
+
+        function checkPasscode() {
+            if (inputCode === correctPasscode) {
+                document.body.innerHTML = `
+                    <div class='container'>
+                        <h2>Happy 37 Months & Happy Valentine's, bbyyy! ❤️</h2>
+                        <p>Sana mag-meet na ulit us soon. Miss na miss na kita!<br>
+                        Sorry bby, 'di us nag-meet sa anniversary, bawi me sau sa next meetup puuu.<br>
+                        I loveeeeeeeee youuuuuuuuuuuuu! 💕</p>
+                    </div>
+                `;
+            } else {
+                alert("Wrong passcode! Try again.");
+                clearPasscode();
+            }
+        }
+    </script>
+</body>
+</html>
