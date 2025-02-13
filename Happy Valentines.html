@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 37 Months & Valentine's Day</title>
+    <style>
+        body {
+            text-align: center;
+            background: url('https://source.unsplash.com/1600x900/?romantic,hearts') no-repeat center center/cover;
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+        .container {
+            margin-top: 100px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        img {
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        #gif {
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        #passcodeScreen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://source.unsplash.com/1600x900/?heart') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .numpad {
+            display: grid;
+            grid-template-columns: repeat(3, 80px);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .numpad button {
+            width: 80px;
+            height: 80px;
+            font-size: 1.5em;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .numpad button:active {
+            background: pink;
+        }
+        #passcodeDisplay {
+            font-size: 2em;
+            background: white;
+            color: black;
+            width: 180px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="passcodeScreen">
+        <h1>Enter the Passcode</h1>
+        <div id="passcodeDisplay">••••••</div>
+        <div class="numpad">
+            <button onclick="addNumber(1)">1</button>
+            <button onclick="addNumber(2)">2</button>
+            <button onclick="addNumber(3)">3</button>
+            <button onclick="addNumber(4)">4</button>
+            <button onclick="addNumber(5)">5</button>
+            <button onclick="addNumber(6)">6</button>
+            <button onclick="addNumber(7)">7</button>
+            <button onclick="addNumber(8)">8</button>
+            <button onclick="addNumber(9)">9</button>
+            <button onclick="clearPasscode()">❌</button>
+            <button onclick="addNumber(0)">0</button>
+            <button onclick="checkPasscode()">✅</button>
+        </div>
+        <p id="errorMsg" style="color: red; display: none;">Wrong passcode. Try again.</p>
+    </div>
+
+    <div class="container" id="mainContent" style="display: none;">
+        <h1>Happy 37th Monthsary & Valentine's Day, My Love! ❤️</h1>
+        <p>Happy 37 months and happy Valentine's, bbyyy! Sana mag-meet na ulit us soon. Miss na miss na kita! Sorry bby, 'di us nag-meet sa anniversary, bawi me sau sa next meetup puuu. I loveeeeeeeee youuuuuuuuuuuuu!</p>
+        <img src="file:///storage/image/1000001629" alt="Us">
+        <img id="gif" src="file:///storage/image/1000005579" alt="A cute GIF">
+    </div>
+
+    <script>
+        let enteredPasscode = "";
+
+        function addNumber(num) {
+            if (enteredPasscode.length < 6) {
+                enteredPasscode += num;
+                document.getElementById("passcodeDisplay").textContent = "•".repeat(enteredPasscode.length);
+            }
+        }
+
+        function clearPasscode() {
+            enteredPasscode = "";
+            document.getElementById("passcodeDisplay").textContent = "••••••";
+        }
+
+        function checkPasscode() {
+            if (enteredPasscode === "011422") {
+                document.getElementById("passcodeScreen").style.display = "none";
+                document.getElementById("mainContent").style.display = "block";
+            } else {
+                document.getElementById("errorMsg").style.display = "block";
+                clearPasscode();
+            }
+        }
+    </script>
+
+</body>
+</html><ALOASK-SEPARATE-EDITORS>html {
+   background: linear-gradient(to right, dodgerblue 0%, deepskyblue 100%);
+}
+h1{
+   color: white;
+}
+<ALOASK-SEPARATE-EDITORS>console.log('JavaScript Console');
